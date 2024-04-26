@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <!-- Левая часть с изображением -->
+            <div class="col-md-0">
+
+            </div>
+
+            <!-- Правая часть с информацией о докторе -->
+            <div class="col-md-8">
+                <h2>{{ doctor.name }}</h2>
+                <p>Должность: {{ doctor.specialization }}</p>
+                <p>Описание: {{ doctor.description }}</p>
+                <p class="card-text mb-auto">Стаж {{ doctor.experience }} Лет</p>
+                <div class="">
+
+
+                    {% if user.is_staff %}
+                        <a href="{% url 'main:doctor_update' doctor.id %}"
+                           class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                        <a href="{% url 'main:doctor_delete' doctor.id %}"
+                           class="btn btn-sm btn-outline-danger">Удалить</a>
+
+                    {% endif %}
+                </div>
+
+
+            </div>
+            <div class="col-6">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
