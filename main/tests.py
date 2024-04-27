@@ -21,7 +21,6 @@ class TestMain(TestCase):
 
         self.labtest = LabTest.objects.create(
             name='test',
-            category=self.testcategory,
             description='test',
             price=1000,
             time=2,
@@ -49,13 +48,12 @@ class TestMain(TestCase):
     def test_create_labtest(self):
         data = {
             'name': 'test1',
-            'category': self.testcategory,
             'description': 'test1',
             'price': 2000,
             'time': 4,
         }
         response = self.client.post(
-            '/labtest_create/',
+            '/labtest_create',
             data=data
         )
 

@@ -24,14 +24,13 @@
                            class="btn btn-sm btn-outline-secondary">Редактировать</a>
                         <a href="{% url 'main:labtest_delete' labtest.id %}"
                            class="btn btn-sm btn-outline-danger">Удалить</a>
+
+                    {% endif %}
                         <form action="{% url 'cart:cart_add' labtest.id %}" method="post">
                             {{ cart_product_form }}
                             {% csrf_token %}
                             <button class="add-to-cart-btn">Положить в корзину</button>
                         </form>
-
-                    {% endif %}
-
                 </div>
             <img class="card-img-right flex-auto d-none d-md-block" src="{% mediapath labtest.image %}"/>
             </div>

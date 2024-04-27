@@ -9,8 +9,8 @@ class TestMain(TestCase):
     def setUp(self) -> None:
         self.user = User.objects.create(
             email='test@yandex.ru',
-            first_name='Aleksei',
-            last_name='Aleksei',
+            first_name='name',
+            last_name='name',
             password='a3499765',
             is_staff=True,
             is_superuser=True,
@@ -24,7 +24,6 @@ class TestMain(TestCase):
 
         self.labtest = LabTest.objects.create(
             name='test',
-            category=self.testcategory,
             description='test',
             price=1000,
             time=2,
