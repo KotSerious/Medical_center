@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import redirect
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 
 from django.views.generic import CreateView, UpdateView, DetailView
 
@@ -28,11 +28,6 @@ class RegisterView(CreateView):
     form_class = UserRegisterForm
     success_url = reverse_lazy('users:login')
     template_name = 'users/register.html'
-
-    #def form_valid(self, form):
-    #    self.object = form.save()
-    #    self.object.save()
-    #    return super().form_valid(form)
 
 
 class ProfileView(UpdateView):

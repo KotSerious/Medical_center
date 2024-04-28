@@ -5,6 +5,8 @@ from cart.models import Cart, CartItem
 from users.models import User
 
 user = get_user_model()
+
+
 class TestMain(TestCase):
     def setUp(self) -> None:
         self.user = User.objects.create(
@@ -41,7 +43,6 @@ class TestMain(TestCase):
         )
 
     def test_cart(self):
-
         response = self.client.get('/cart/')
 
         self.assertEqual(response.status_code, 200)

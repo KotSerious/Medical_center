@@ -47,10 +47,10 @@ class TestMain(TestCase):
 
     def test_create_labtest(self):
         data = {
-            'name': 'test1',
+            'name': '',
             'description': 'test1',
             'price': 2000,
-            'time': 4,
+            'time': 1,
         }
         response = self.client.post(
             '/labtest_create',

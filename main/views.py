@@ -1,6 +1,4 @@
-from django.contrib.auth.mixins import (LoginRequiredMixin,
-                                        PermissionRequiredMixin,
-                                        UserPassesTestMixin)
+from django.contrib.auth.mixins import (LoginRequiredMixin, UserPassesTestMixin)
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -37,9 +35,6 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        # all_specials = Specials.objects.filter(active=True)
-        # context['all_specials'] = all_specials
         return context
 
 
@@ -53,7 +48,6 @@ class LabTestListView(ListView):
 
 class LabTestDetailView(DetailView):
     model = LabTest
-    # cart_labtest_form = CartAddProductForm
 
 
 class LabTestCreateView(CreateView):
@@ -120,4 +114,3 @@ class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     success_url = reverse_lazy('main:doctor_list')
-
