@@ -7,7 +7,8 @@ from users.models import User
 class UserRegisterForm(StyleFormMixin, UserCreationForm):
     class Meta:
         model = User
-        fields = ["email", "first_name", "last_name", "phone", "age", "gender",  "city", "password1", "password2", "image"]
+        fields = ["email", "first_name", "last_name", "phone", "age", "gender", "city", "password1", "password2",
+                  "image"]
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -18,7 +19,7 @@ class UserRegisterForm(StyleFormMixin, UserCreationForm):
 class UserForm(StyleFormMixin, UserChangeForm):
     class Meta:
         model = User
-        fields = ["email", "first_name", "last_name", "phone", "age", "gender",  "city", "image"]
+        fields = ["email", "first_name", "last_name", "phone", "age", "gender", "city", "image"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

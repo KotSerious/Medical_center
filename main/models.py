@@ -6,6 +6,17 @@ from django.conf import settings
 NULLABLE = {'blank': True, 'null': True}
 
 
+class TestCategory(models.Model):
+    name = models.CharField(max_length=50, verbose_name='название категории')
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
 class LabTest(models.Model):
     name = models.CharField(max_length=100, verbose_name='название анализа')
     description = models.TextField(verbose_name='описание', **NULLABLE)

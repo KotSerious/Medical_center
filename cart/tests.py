@@ -5,12 +5,14 @@ from cart.models import Cart, CartItem
 from users.models import User
 
 user = get_user_model()
+
+
 class TestMain(TestCase):
     def setUp(self) -> None:
         self.user = User.objects.create(
             email='test@yandex.ru',
-            first_name='Aleksei',
-            last_name='Aleksei',
+            first_name='name',
+            last_name='name',
             password='a3499765',
             is_staff=True,
             is_superuser=True,
@@ -24,7 +26,6 @@ class TestMain(TestCase):
 
         self.labtest = LabTest.objects.create(
             name='test',
-            category=self.testcategory,
             description='test',
             price=1000,
             time=2,
@@ -42,7 +43,6 @@ class TestMain(TestCase):
         )
 
     def test_cart(self):
-
         response = self.client.get('/cart/')
 
         self.assertEqual(response.status_code, 200)
