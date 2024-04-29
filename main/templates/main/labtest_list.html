@@ -6,6 +6,9 @@
     {% if user.is_staff %}
         <a class="btn btn-outline-primary" href="{% url 'main:labtest_create' %}">Добавить тест</a>
     {% endif %}
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+
+    </h3>
     <div class="row mb-2">
     {% for labtest in labtest_list %}
         <div class="col-md-6">
@@ -26,13 +29,13 @@
                            class="btn btn-sm btn-outline-danger">Удалить</a>
 
                     {% endif %}
-                        <form action="{% url 'cart:cart_add' labtest.id %}" method="post">
-                            {{ cart_product_form }}
-                            {% csrf_token %}
-                            <button class="add-to-cart-btn">Положить в корзину</button>
-                        </form>
+                    <form action="{% url 'cart:cart_add' labtest.id %}" method="post">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <button class="add-to-cart-btn">Положить в корзину</button>
+                    </form>
                 </div>
-            <img class="card-img-right flex-auto d-none d-md-block" src="{% mediapath labtest.image %}"/>
+                <img class="card-img-right flex-auto d-none d-md-block" src="{% mediapath labtest.image %}"/>
             </div>
         </div>
     {% endfor %}
